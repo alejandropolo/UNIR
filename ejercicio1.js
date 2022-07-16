@@ -1,6 +1,6 @@
 console.log ("Hello World")
 
-d3.json ("https://raw.githubusercontent.com/ropero98/UNIR/main/D3exam.json").then (function (datos){
+d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json").then (function (datos){
     
     
     //cargamos el dataset de github
