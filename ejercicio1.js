@@ -13,10 +13,6 @@ d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json"
 			var h = 700;
 			var padding = 20; //Se introcuce el padding para que no toque con los laterales de la visualización
 
-			var dataset = [
-							[5, 1], [8, 2], [3, 3], [6, 4], [5, 5],
-							[9,6], [10, 7], [4, 8], [1, 9], [5, 10]
-						  ];
 
 			//Se crean las escalas correspondientes
 			var xScale = d3.scaleLinear()
@@ -29,12 +25,12 @@ d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json"
 
 			var aScale = d3.scaleSqrt()
 								 .domain(d3.extent(datos, d => (d.nota)))
-								 .range([0, 10]);
+								 .range([2, 15]);
 
             var escalaColor = d3.scaleLinear ()
                                 .domain ([1, 5, 10])//las notas van del 1 al 10
                                 .range (["red", "grey", "green"])//escala de colores de rojo a azul
-			//Define X axis
+			//Se definen el eje x y el eje y
 			var xAxis = d3.axisBottom()
 							.scale(xScale)
                             .ticks(10); //Para fijar el numero de ticks
@@ -43,13 +39,13 @@ d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json"
                           .scale(yScale)
                           .ticks(10);
 
-			//Create SVG element
+			//Se crea el elemnto SVG
 			var svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
 
-			//Create circles
+			//Se crea la visualización
 			svg.selectAll("circle")
 			   .data(datos)
 			   .enter()
@@ -68,17 +64,17 @@ d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json"
                 return escalaColor(d.nota);
                });
 
-			//Create labels
+			//Se crean las labels (No he tenido tiempo del tooltip)
 			svg.selectAll("text")
 			   .data(datos)
 			   .enter()
 			   .append("text")
                .transition()
 			   .text(function(d) {
-			   		return d.nota + "," + d.ranking;
+			   		return "("+d.nota + "," + d.ranking+")";
 			   })
 			   .attr("x", function(d) {
-			   		return xScale(d.nota);
+			   		return xScale(d.nota)+padding/2;
 			   })
 			   .attr("y", function(d) {
 			   		return yScale(d.ranking);
@@ -88,7 +84,7 @@ d3.json ("https://raw.githubusercontent.com/alejandropolo/UNIR/main/D3exam.json"
 			   .attr("fill", "red");
 			
 			
-			//Create X axis
+			//Se añaden los ejes x e y
 			svg.append("g")
 				.attr("class", "axis")
                 .attr("transform", "translate(0," + (h - padding) + ")")
