@@ -1,37 +1,37 @@
 [{
 "alumno":"Alejandro",
 "nota": 10,
-"ranking":1
+"ranking":10
 }, {
 "alumno":"Pablo",
 "nota": 9,
-"ranking":2
+"ranking":9
 }, {
 "alumno":"Javi",
 "nota":1,
-"ranking":9
+"ranking":1
 }, {
 "alumno":"Pedro",
 "nota":8,
-"ranking":3
+"ranking":2
 }, {
 "alumno":"Sergio",
 "nota":2,
-"ranking":8
+"ranking":2
 }, {
 "alumno":"Alvaro",
 "nota":7,
-"ranking":4
+"ranking":7
 }, {
 "alumno":"Andres",
 "nota":3,
-"ranking":7
+"ranking":3
 }, {
 "alumno":"Jacobo",
 "nota":6,
-"ranking":5
+"ranking":6
 }, {
 "alumno":"Nacho",
 "nota":5,
-"ranking":6
+"ranking":5
 }]
